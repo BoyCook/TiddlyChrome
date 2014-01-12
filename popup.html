@@ -8,23 +8,20 @@
           min-width: 357px;
           overflow-x: hidden;
       }
-      img {
-          margin: 5px;
-          border: 2px solid black;
-          vertical-align: middle;
-          width: 75px;
-          height: 75px;
-      } 
       section.main {
          width: 200px;
       }
 
-      section.input {
-         width: 200px;
+      .tiddler-edit-mode textarea {
+        height: 150px;
       }      
 
-      .tiddler-edit-mode textarea, .tiddler-edit-mode input[type="text"] {
-        width: 80%;
+      .tiddler-edit-mode textarea, .tiddler-edit-mode input[type="text"]:not(#space) {
+        width: 90%;
+      }
+
+      .tiddler-edit-mode input[id="space"] {
+        width: 25%;
       }      
     </style>
     <!--
@@ -33,35 +30,29 @@
       -
       - [1]: http://developer.chrome.com/extensions/contentSecurityPolicy.html
      -->
-    <!-- <script src="popup.js"></script> -->
 </head>
 
 <body>
    <section class="tiddler tiddler-edit-mode">
-      <section class="toolbar">
-          <a href="#tiddler/{{this.title}}/save" title="Save changes"><i class="icon-ok"></i></a>
-          <a href="#tiddler/{{this.title}}/canceledit"><i class="icon-reverse-alt" title="Cancel changes"></i></a>
-          <a href="#tiddler/{{this.title}}/delete" title="Delete tiddler"><i class="icon-trash"></i></a>
-          <a href="#maximize/{{this.title}}" title="Maximize"><i class="icon-resize-full"></i></a>
-          <a href="#minimize/{{this.title}}" title="Minimize" class="hidden"><i class="icon-resize-small"></i></a>
-      </section>
       <section><input id="title" type="text" value="New Tiddler" class="tiddler-title"></section>
       <section class="tiddler-edit-config">
           <input type="radio" name="privacy" value="private"><i class="icon-lock" title="Private"></i>
           <input type="radio" name="privacy" value="public" checked="checked"><i class="icon-unlock" title="Public"></i>
           <select id="type" class="tiddler-type">
-              <option value="text/x-markdown"{{ tiddlertype this.type "text/x-markdown" }}>Markdown</option>
-              <option value="text/plain"{{ tiddlertype this.type "text/plain"}}>Plain Text</option>
-              <option value="text/html"{{ tiddlertype this.type "text/html"}}>HTML</option>
-              <option value="text/css"{{ tiddlertype this.type "text/css"}}>CSS</option>
-              <option value="text/javascript"{{ tiddlertype this.type "text/javascript"}}>JavaScript</option>
-              <option value="text/x-tiddlywiki"{{ tiddlertype this.type "text/x-tiddlywiki"}}>TiddlyWiki Text</option>
+              <option value="text/x-markdown">Markdown</option>
+              <option value="text/plain">Plain Text</option>
+              <option value="text/html">HTML</option>
+              <option value="text/css">CSS</option>
+              <option value="text/javascript">JavaScript</option>
+              <option value="text/x-tiddlywiki">TiddlyWiki Text</option>
           </select>
       </section>
       <section><textarea id="text" class="tiddler-text">Type the text for 'New Tiddler'</textarea></section>
       <section><input id="tags" type="text" class="tiddler-tags"></section>
+      <section><button>Save</button><input id="space" type="text" placeholder="space"></section>
    </section>
-  <button>Save</button>
+   <script type="text/javascript" src="http://spaceui.tiddlyspace.com/bags/spaceui_public/tiddlers/space.js"></script>
+   <script Type="text/javascript" src="popup.js"></script>
 </body>
 
 </html>
