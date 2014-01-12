@@ -5,7 +5,8 @@
   "description": "Create Tiddlers from Chrome",
   "version": "1.0",
   "permissions": [
-    "http://tiddlyspace.com/"
+    "http://tiddlyspace.com/*",
+    "http://spaceui.tiddlyspace.com/*"
   ],
   "browser_action": {
     "default_icon": "icon.png",

@@ -7,22 +7,23 @@
 function saveTiddler() {
    var baseURL = 'http://boycook.tiddlyspace.com/';
    var spaceName = 'boycook';
-   var space = new Space(baseURL, spaceName, this);
-
-this.space.saveTiddler(tiddler, this.addedTiddler, this.ajaxError);
-
-   space.saveTiddler(tiddler, success, error)
-
+   // var space = new Space(baseURL, spaceName, this);
+   var tiddler = readTiddler();
+   console.log(tiddler);
+   // space.saveTiddler(tiddler, success, error)
 }
 
 function readTiddler() {
    var typeElem = document.getElementById('type');
-   var type = typeElem.options.selectedIndex[typeElem.options.selectedIndex].value;
+   var type = typeElem.options[typeElem.options.selectedIndex].value;
 
    var tiddler = {};
    tiddler.title = document.getElementById('title').value;
    tiddler.text = document.getElementById('text').value;
    tiddler.tags = document.getElementById('tags').value;
    tiddler.type = type;
-   tiddler.bag = this.spaceName + '_' + 'public';
+   tiddler.bag = document.getElementById('space').value + '_' + 'public';
+   return tiddler;
 }
+
+document.getElementById('save').onclick = saveTiddler;
