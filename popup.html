@@ -36,8 +36,8 @@
    <section class="tiddler tiddler-edit-mode">
       <section><input id="title" type="text" value="New Tiddler" class="tiddler-title"></section>
       <section class="tiddler-edit-config">
-          <input type="radio" name="privacy" value="private"><i class="icon-lock" title="Private"></i>
-          <input type="radio" name="privacy" value="public" checked="checked"><i class="icon-unlock" title="Public"></i>
+          <input type="radio" id="privacy" name="privacy" value="private"><i class="icon-lock" title="Private"></i>
+          <input type="radio" id="privacy" name="privacy" value="public" checked="checked"><i class="icon-unlock" title="Public"></i>
           <select id="type" class="tiddler-type">
               <option value="text/x-markdown">Markdown</option>
               <option value="text/plain">Plain Text</option>
@@ -49,7 +49,7 @@
       </section>
       <section><textarea id="text" class="tiddler-text">Type the text for 'New Tiddler'</textarea></section>
       <section><input id="tags" type="text" class="tiddler-tags"></section>
-      <section><button>Save</button><input id="space" type="text" placeholder="space"></section>
+      <section><button onclick="saveTiddler()">Save</button><input id="space" type="text" placeholder="space"></section>
    </section>
    <script type="text/javascript" src="http://spaceui.tiddlyspace.com/bags/spaceui_public/tiddlers/space.js"></script>
    <script Type="text/javascript" src="popup.js"></script>
