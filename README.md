@@ -1,1 +1,1 @@
-A Chrome extension for [[TiddlySpace|http://tiddlyspace.com]]
+A Chrome extension for [TiddlySpace](http://tiddlyspace.com)
