@@ -16,13 +16,9 @@
         height: 150px;
       }      
 
-      .tiddler-edit-mode textarea, .tiddler-edit-mode input[type="text"]:not(#space) {
+      .tiddler-edit-mode textarea, .tiddler-edit-mode input[type="text"] {
         width: 90%;
-      }
-
-      .tiddler-edit-mode input[id="space"] {
-        width: 25%;
-      }      
+      } 
     </style>
     <!--
       - JavaScript and HTML must be in separate files: see our Content Security
@@ -49,10 +45,9 @@
       </section>
       <section><textarea id="text" class="tiddler-text">Type the text for 'New Tiddler'</textarea></section>
       <section><input id="tags" type="text" class="tiddler-tags"></section>
-      <section><button id="save">Save</button><input id="space" type="text" placeholder="space"></section>
+      <section><button id="save">Save</button></section>
    </section>
    <!-- // <script type="text/javascript" src="http://spaceui.tiddlyspace.com/bags/spaceui_public/tiddlers/space.js"></script> -->
    <script Type="text/javascript" src="popup.js"></script>
 </body>
-
 </html>
