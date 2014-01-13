@@ -6,7 +6,7 @@
 
 function TiddlyChrome() {
    TiddlyChrome.baseURL = 'http://boycook.tiddlyspace.com';
-   TiddlyChrome.spaceName = 'boycook';
+   TiddlyChrome.spaceName = localStorage["space"];
 }
 
 TiddlyChrome.saveTiddler = function() {
@@ -25,7 +25,7 @@ TiddlyChrome.readTiddler = function() {
    tiddler.text = document.getElementById('text').value;
    tiddler.tags = document.getElementById('tags').value;
    tiddler.type = type;
-   tiddler.bag = document.getElementById('space').value + '_' + 'public';
+   tiddler.bag = TiddlyChrome.spaceName + '_' + 'public';
    return tiddler;
 };
 
