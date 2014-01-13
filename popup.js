@@ -4,16 +4,19 @@
 //   // kittenGenerator.requestKittens();
 // });
 
-function saveTiddler() {
-   var baseURL = 'http://boycook.tiddlyspace.com/';
-   var spaceName = 'boycook';
-   // var space = new Space(baseURL, spaceName, this);
-   var tiddler = readTiddler();
-   console.log(tiddler);
-   // space.saveTiddler(tiddler, success, error)
+function TiddlyChrome() {
+   TiddlyChrome.baseURL = 'http://boycook.tiddlyspace.com';
+   TiddlyChrome.spaceName = 'boycook';
 }
 
-function readTiddler() {
+TiddlyChrome.saveTiddler = function() {
+   // var space = new Space(baseURL, spaceName, this);
+   var tiddler = TiddlyChrome.readTiddler();
+   console.log(tiddler);
+   TiddlyChrome.putTiddler(tiddler);
+};
+
+TiddlyChrome.readTiddler = function() {
    var typeElem = document.getElementById('type');
    var type = typeElem.options[typeElem.options.selectedIndex].value;
 
@@ -24,6 +27,26 @@ function readTiddler() {
    tiddler.type = type;
    tiddler.bag = document.getElementById('space').value + '_' + 'public';
    return tiddler;
-}
+};
 
-document.getElementById('save').onclick = saveTiddler;
+TiddlyChrome.putTiddler = function(tiddler) {
+   var callBack = function() {
+      if (xhr.readyState == 4) {
+         console.log(xhr.responseText);
+      }
+   };
+   TiddlyChrome.doAjax(TiddlyChrome.baseURL + '/bags/' + tiddler.bag + '/tiddlers/' + tiddler.title,
+                       'PUT', tiddler, callBack);   
+};
+
+TiddlyChrome.doAjax = function(url, method, data, callBack) {
+   var xhr = new XMLHttpRequest();
+   xhr.open(method, url, true);
+   xhr.setRequestHeader("Content-Type", "application/json;charset=UTF-8");
+   xhr.onreadystatechange = callBack;
+   xhr.send(JSON.stringify(data));   
+};
+
+var app = new TiddlyChrome();
+document.getElementById('save').onclick = TiddlyChrome.saveTiddler;
+
