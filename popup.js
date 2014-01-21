@@ -16,6 +16,11 @@ TiddlyChrome.saveTiddler = function() {
    TiddlyChrome.putTiddler(tiddler);
 };
 
+TiddlyChrome.openSpace = function() {
+   var url = 'http://' + TiddlyChrome.spaceName + '.tiddlyspace.com';
+   chrome.tabs.create({'url': url});   
+};
+
 TiddlyChrome.readTiddler = function() {
    var typeElem = document.getElementById('type');
    var type = typeElem.options[typeElem.options.selectedIndex].value;
@@ -49,4 +54,7 @@ TiddlyChrome.doAjax = function(url, method, data, callBack) {
 
 var app = new TiddlyChrome();
 document.getElementById('save').onclick = TiddlyChrome.saveTiddler;
+document.getElementById('mySpace').onclick = TiddlyChrome.openSpace;
+
+
 
