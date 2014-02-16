@@ -21,6 +21,21 @@ TiddlyChrome.openSpace = function() {
    chrome.tabs.create({'url': url});   
 };
 
+TiddlyChrome.show = function(module) {
+   TiddlyChrome.hideAll();
+   document.getElementsByClassName(module)[0];
+   // TODO: add/remove hide class
+};
+
+TiddlyChrome.hideAll = function() {
+   var modules = document.getElementsByClassName('module');
+   for (var i=0,len=modules.length; i<len; i++) {
+      var module = modules[i];
+      module.className
+   }
+   document.getElementsByClassName('tiddler-title')[0].value
+};
+
 TiddlyChrome.readTiddler = function() {
    var typeElem = document.getElementById('type');
    var type = typeElem.options[typeElem.options.selectedIndex].value;
@@ -54,7 +69,6 @@ TiddlyChrome.doAjax = function(url, method, data, callBack) {
 
 var app = new TiddlyChrome();
 document.getElementById('save').onclick = TiddlyChrome.saveTiddler;
-document.getElementById('mySpace').onclick = TiddlyChrome.openSpace;
-
-
-
+document.getElementById('showEditTiddler').onclick = TiddlyChrome.openSpace;
+document.getElementById('showFavourites').onclick = TiddlyChrome.openSpace;
+document.getElementById('showMySpace').onclick = TiddlyChrome.openSpace;

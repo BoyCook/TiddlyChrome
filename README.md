@@ -6,3 +6,6 @@ Set your `space` using the options page.
 ### Warning
 This is currently just a spike and has no error handling or validation, use at your own risk.
 
+### Links
+
+* http://developer.chrome.com/extensions/contentSecurityPolicy.html
