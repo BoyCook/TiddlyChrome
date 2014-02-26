@@ -14,3 +14,12 @@ function restore_options() {
 }
 document.addEventListener('DOMContentLoaded', restore_options);
 document.querySelector('#save').addEventListener('click', save_options);
+
+
+// chrome.notifications.create(
+//     'Tiddly Chrome', {   
+//     type: 'basic', 
+//     iconUrl: 'icon.png', 
+//     title: "This is a notification", 
+//     message: "hello there!" 
+// };
