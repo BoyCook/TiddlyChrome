@@ -6,8 +6,9 @@ Set your `space` using the options page.
 ### Warning
 This is currently just a spike and has no error handling or validation, use at your own risk.
 
-### Resources
+### Links
 
+* http://developer.chrome.com/extensions/contentSecurityPolicy.html
 * http://developer.chrome.com/extensions/background_pages.html
 * http://developer.chrome.com/extensions/notifications.html
 * https://productforums.google.com/forum/#!topic/hangouts/qYPy5ebUhDk
