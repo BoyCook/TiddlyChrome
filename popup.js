@@ -36,6 +36,11 @@ TiddlyChrome.hideAll = function() {
    document.getElementsByClassName('tiddler-title')[0].value
 };
 
+TiddlyChrome.getTag = function(tag) {
+// http://boycook.tiddlyspace.com/search?select=tag:git
+   // TODO: add/remove hide class
+};
+
 TiddlyChrome.readTiddler = function() {
    var typeElem = document.getElementById('type');
    var type = typeElem.options[typeElem.options.selectedIndex].value;
