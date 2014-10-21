@@ -11,11 +11,14 @@
       section.main {
          width: 200px;
       }
-      input[type="text"]{
+      section > label:first-child {
+        width: 100px;
+      }
+      input[type="text"] {
         width: 150px;
       }
-      label {
-        width: 20px;
+      label, input, select {
+         display: inline-block;
       }
     </style>
 </head>
@@ -32,10 +35,11 @@
         <input id="tag" type="text" placeholder="Tag Name">
       </section> 
       <section class="tiddler-edit-config">
+         <label>Visibility:</label>
          <label>Private:</label>
-         <input type="radio" name="privacy" value="private" checked="checked">
+         <input type="radio" name="visibility" value="private" checked="checked" />
          <label>Public:</label>
-         <input type="radio" name="privacy" value="public"> 
+         <input type="radio" name="visibility" value="public" /> 
       </section>
       <section>
         <label for="type">Tiddler Type:</label>
