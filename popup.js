@@ -5,8 +5,11 @@
 // });
 
 function TiddlyChrome() {
-   TiddlyChrome.baseURL = 'http://boycook.tiddlyspace.com';
    TiddlyChrome.spaceName = localStorage["space"];
+   TiddlyChrome.tag = localStorage["tag"];
+   TiddlyChrome.type = localStorage["type"];
+   TiddlyChrome.visibility = localStorage["visibility"];
+   TiddlyChrome.baseURL = 'http://' + TiddlyChrome.spaceName + '.tiddlyspace.com';
 }
 
 TiddlyChrome.saveTiddler = function() {
@@ -36,9 +39,10 @@ TiddlyChrome.hideAll = function() {
    document.getElementsByClassName('tiddler-title')[0].value
 };
 
-TiddlyChrome.getTag = function(tag) {
+TiddlyChrome.getTiddlers = function(url) {
 // http://boycook.tiddlyspace.com/search?select=tag:git
    // TODO: add/remove hide class
+   TiddlyChrome.doAjax(TiddlyChrome.baseURL + '/' + url, undefined, 'GET', callBack);      
 };
 
 TiddlyChrome.readTiddler = function() {
@@ -69,7 +73,11 @@ TiddlyChrome.doAjax = function(url, method, data, callBack) {
    xhr.open(method, url, true);
    xhr.setRequestHeader("Content-Type", "application/json;charset=UTF-8");
    xhr.onreadystatechange = callBack;
-   xhr.send(JSON.stringify(data));   
+   if (data) {
+      xhr.send(JSON.stringify(data));   
+   } else {
+      xhr.send();
+   }
 };
 
 var app = new TiddlyChrome();
